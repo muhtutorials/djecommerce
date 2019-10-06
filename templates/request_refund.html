@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+  <style type="text/css">
+    html,
+    body,
+    header {
+      height: 60vh;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header {
+        height: 100vh;
+      }
+    }
+
+  </style>
+{% endblock style %}
+
+{% block content %}
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+      <h2>Request Refund</h2>
+      <form method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+  </main>
+  <!--Main layout-->
+
+{% endblock content %}
